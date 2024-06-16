@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppTest.Pages.CarPages.CarListPage"
+             Title="Car List">
+
+
+	<ContentPage.ToolbarItems>
+		<ToolbarItem class="btn" Text="Add Car" Clicked="OnAddBtnClicked" />
+	</ContentPage.ToolbarItems>
+
+	<CollectionView x:Name="collectionView"
+				SelectionMode="Single"
+				SelectionChanged="OnSelectionChanged"
+				Margin="30">
+
+		<CollectionView.ItemsLayout>
+			<LinearItemsLayout Orientation="Vertical" ItemSpacing="20" />
+		</CollectionView.ItemsLayout>
+
+
+		<CollectionView.ItemTemplate>
+			<DataTemplate>
+
+				<Grid Padding="10" Margin="12">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="1*" />
+					</Grid.RowDefinitions>
+					<StackLayout Grid.Row="1" Margin="6">
+
+						<Label Grid.Column="1"
+                           VerticalOptions="Center"
+                           Text="{Binding Brand}"
+                           FontAttributes="Bold" />
+
+						<Label Text="{Binding Model}"
+                           Grid.Row="1"
+                           Grid.Column="1"
+                           VerticalOptions="Start"
+                           FontAttributes="Italic" />
+
+					</StackLayout>
+				</Grid>
+
+			</DataTemplate>
+		</CollectionView.ItemTemplate>
+
+	</CollectionView>
+
+</ContentPage>
